@@ -1,0 +1,7 @@
+.benchmarks
+.cache
+.git
+.idea
+.ipynb_checkpoints
+__pycache__
+.pytest_cache
