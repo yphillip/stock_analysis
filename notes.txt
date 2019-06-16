@@ -1,0 +1,3 @@
+I had a hard time trying to install pandas-datareader within a conda environment on python 3.6.
+Doing an import pandas_datareader would lead to a ModuleNotFound error.
+What ended up working was using pip3 install pandas-datareader (pip install and conda install didn't work).
