@@ -28,6 +28,9 @@ def test_calc_portfolio_value():
     assert calc_portfolio_value(trades[0:3], starting_wallet=s_wallet) == 0.50
     assert calc_portfolio_value(trades[0:4], starting_wallet=s_wallet) == 399.50
 
+    trades = [('HOLD', 1.00)]
+    assert calc_portfolio_value(trades[0:1], starting_wallet=s_wallet) == 100
+
 
 def main():
     test_calc_moving_average()

@@ -84,6 +84,9 @@ def calc_portfolio_value(trades, starting_wallet=1000):
             print("Sell {:.0f} shares at ${:.2f}, so wallet now has: ${:.2f}"
                   .format(shares, price, wallet))
             shares = 0
+        else:
+            print("{} is not a valid action! Wallet still has ${:.2f}"
+                  .format(action, wallet))
     return wallet
 
 
