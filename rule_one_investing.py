@@ -68,6 +68,25 @@ def calc_stochastic(time_series, steps=14, signal=5):
     return stochastic, signal_line
 
 
+def calc_portfolio_value(trades, starting_wallet=1000):
+    wallet = starting_wallet
+    print("starting wallet: ", wallet)
+    shares = 0
+    for action, price in trades:
+        if action == "BUY":
+            shares_can_afford = int(wallet/price)
+            shares += shares_can_afford
+            wallet -= price*shares_can_afford
+            print("Buy {:.0f} shares at ${:.2f}, so wallet now has: ${:.2f}"
+                  .format(shares, price, wallet))
+        elif action == 'SELL':
+            wallet += price*shares
+            print("Sell {:.0f} shares at ${:.2f}, so wallet now has: ${:.2f}"
+                  .format(shares, price, wallet))
+            shares = 0
+    return wallet
+
+
 def main():
     print(calc_stochastic([1,2,3,4,5,6,7,8,9]*3, steps=5))
 
